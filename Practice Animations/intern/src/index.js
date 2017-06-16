@@ -1,6 +1,8 @@
 import Inferno from 'inferno';
 import Component from 'inferno-component';
 import 'bootstrap/dist/css/bootstrap.css';
+import './index.css';
+import Velocity from 'velocity-animate';
 
 const Function1 = (props) => {
     if(!props.main){
@@ -13,8 +15,6 @@ const Function1 = (props) => {
         <Main />
     )
 }
-
-
 
 class Main extends Component{
     
@@ -73,12 +73,34 @@ class Container extends Component {
                 <Constant/>
                 <Function1 main={this.state.main} />
                 <button class="btn btn-md btn-primary" onClick = {this.handleToggleClick.bind(this)}>{this.state.main ? 'Second Class': 'Main Class'}</button>
+                <VelocityAnimation/>
             </div>
         );
     }
 }
 
-// ========================================
+
+class VelocityAnimation extends Component{  
+
+    render(){
+
+        const animate = () => {
+            let element = document.querySelector(".bar");
+            Velocity(element, {height: "400px", backgroundColor: "#ffffff"});
+            Velocity(element, {height: "100px", backgroundColor: "#ff0000"}, 3000, "easeInBounce");
+        }
+
+        return(
+            <div class="container">
+                <div class="col-md-12">
+                    <div class="bar">
+                        <button class="btn btn-md btn-primary" onClick={ animate.bind(this) }>Color</button>
+                    </div>
+                </div>
+            </div>
+        );  
+    }
+}
 
 Inferno.render(
 <Container />,

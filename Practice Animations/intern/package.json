@@ -6,7 +6,8 @@
     "bootstrap": "^3.3.7",
     "inferno": "^3.5.2",
     "inferno-component": "^3.5.2",
-    "jquery": "^3.2.1"
+    "jquery": "^3.2.1",
+    "velocity-animate": "^1.5.0"
   },
   "devDependencies": {
     "inferno-scripts": "4.0.1"
